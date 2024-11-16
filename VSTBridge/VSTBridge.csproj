@@ -7,6 +7,7 @@
         <Platforms>x64;x86</Platforms>
         <RootNamespace>VSTClientSharp</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <UseWindowsForms>true</UseWindowsForms>
     </PropertyGroup>
 
     <ItemGroup>

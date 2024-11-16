@@ -16,26 +16,28 @@ public class Plugin : VstPlugin
     public const int DefaultSampleRate = 48000;
 
     private readonly MidiProcessor _midiProcessor;
-    private readonly ConnectionManager _connectionManager;
     private readonly AudioProcessor _audioProcessor;
+    private readonly PluginEditor _editor;
 
     public Plugin() : base(
         "VST Bridge",
-        0x56_53_43_23,
+        new FourCharacterCode("VSC#").ToInt32(),
         new("VST Bridge", "DE-YU", 0),
         VstPluginCategory.Synth
     )
     {
         MidiBridge midiBridge = new();
         _midiProcessor = new(midiBridge);
-        _connectionManager = new(midiBridge);
         _audioProcessor = new(midiBridge);
+        ConnectionManager connectionManager = new(midiBridge);
+        _editor = new(connectionManager);
     }
 
     public override bool Supports<T>()
     {
         if (typeof(T) == typeof(IVstMidiProcessor)) return true;
         if (typeof(T) == typeof(IVstPluginAudioProcessor)) return true;
+        if (typeof(T) == typeof(IVstPluginEditor)) return true;
         return false;
     }
 
@@ -43,6 +45,7 @@ public class Plugin : VstPlugin
     {
         if (typeof(T) == typeof(IVstMidiProcessor)) return (T)(object)_midiProcessor;
         if (typeof(T) == typeof(IVstPluginAudioProcessor)) return (T)(object)_audioProcessor;
+        if (typeof(T) == typeof(IVstPluginEditor)) return (T)(object)_editor;
         return null;
     }
 

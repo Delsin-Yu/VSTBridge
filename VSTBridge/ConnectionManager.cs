@@ -9,20 +9,34 @@ namespace VSTBridge.Client;
 public class ConnectionManager(MidiBridge bridge)
 {
     private Connection? _activeConnection;
+    private Action? _onDisconnected;
 
-    public async Task ConnectAsync()
+    public async Task ConnectAsync(Action? onDisconnected)
     {
         _activeConnection?.Dispose();
         var pipe = new NamedPipeServerStream("vst-bridge");
-        await pipe.WaitForConnectionAsync();
+        try
+        {
+            await pipe.WaitForConnectionAsync();
+        }
+        catch
+        {
+            pipe.Dispose();
+            onDisconnected?.Invoke();
+            return;
+        }
+        _onDisconnected = onDisconnected;
         _activeConnection = new(pipe, OnDisconnected);
         bridge.Connection = _activeConnection;
     }
 
     private void OnDisconnected()
     {
+        bridge.Connection = null;
         _activeConnection?.Dispose();
         _activeConnection = null;
+        _onDisconnected?.Invoke();
+        _onDisconnected = null;
     }
 
     private class Connection(NamedPipeServerStream serverStream, Action disconnected) : IConnection, IDisposable
