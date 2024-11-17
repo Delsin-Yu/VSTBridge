@@ -1,4 +1,4 @@
-﻿namespace VSTHostSharp;
+﻿namespace VSTBridge.Host;
 
 public class Program
 {
