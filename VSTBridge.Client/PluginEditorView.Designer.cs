@@ -49,7 +49,7 @@ public partial class PluginEditorView : UserControl
         DoConnectBtn.Name = "DoConnectBtn";
         DoConnectBtn.Size = new System.Drawing.Size(144, 115);
         DoConnectBtn.TabIndex = 1;
-        DoConnectBtn.Text = "Connect";
+        DoConnectBtn.Text = "Start Server";
         DoConnectBtn.UseVisualStyleBackColor = true;
         // 
         // PluginEditorView

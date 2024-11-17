@@ -11,7 +11,7 @@ public interface IConnection
 public class MidiBridge
 {
     public float SampleRate { get; set; } = Plugin.DefaultSampleRate;
-    public int BlockSize { get; set; }
+    public int BlockSize { get; set; } = Plugin.DefaultBlockSize;
 
     public IConnection? Connection { get; set; }
 

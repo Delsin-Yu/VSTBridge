@@ -14,6 +14,7 @@ public class PluginCommandStub : StdPluginCommandStub
 public class Plugin : VstPlugin
 {
     public const int DefaultSampleRate = 48000;
+    public const int DefaultBlockSize = 2048;
 
     private readonly MidiProcessor _midiProcessor;
     private readonly AudioProcessor _audioProcessor;

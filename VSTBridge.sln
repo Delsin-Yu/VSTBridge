@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTHost", "VSTHost\VSTHost.csproj", "{7AC4F253-08EF-4232-AB53-BCA1E1B3E9B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTBridge.Host", "VSTBridge.Host\VSTBridge.Host.csproj", "{7AC4F253-08EF-4232-AB53-BCA1E1B3E9B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTBridge", "VSTBridge\VSTBridge.csproj", "{43C5A540-18C0-49FA-B57B-379017DB630B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTBridge.Client", "VSTBridge.Client\VSTBridge.Client.csproj", "{43C5A540-18C0-49FA-B57B-379017DB630B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

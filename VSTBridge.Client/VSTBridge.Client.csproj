@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Platforms>x64;x86</Platforms>
-        <RootNamespace>VSTClientSharp</RootNamespace>
+        <RootNamespace>VSTBridge.Client</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <UseWindowsForms>true</UseWindowsForms>
     </PropertyGroup>
