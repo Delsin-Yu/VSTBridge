@@ -41,8 +41,9 @@ public class AudioServer : IDisposable
     private void Update()
     {
         while (!_isDisposed)
-            foreach (var reader in _readers)
-                reader.Read();
+            lock (_lock)
+                foreach (var reader in _readers)
+                  reader.Read();
     }
 
     private class VstPluginReader : IDisposable
